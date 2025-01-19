@@ -18,7 +18,5 @@ myfunc()
 print("Python is " + p)
 
 
-f = float(20.5)
 
-print (f)
 
