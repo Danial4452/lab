@@ -73,6 +73,73 @@ def check_file(path):
         print(f"Путь '{path}' не существует.")
 
 check_file(current_file_path)
+
+#Task 4
+
+def count_lines(file_path):
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        return len(lines)
+
+file_path = '/Users/danialkozhakhmet/Library/Group Containers/UBF8T346G9.Office/SolutionPackages/f1d4d15c65a935ba2139bb5afaa623b0/PackageResources/fluidhost/static/js/13255.3bc6efaf.chunk.js.LICENSE.txt'
+line_count = count_lines(file_path)
+print(f"Количество строк в файле: {line_count}")
+
+#Task 5 открываем и пишем туда 
+def write_list_to_file(file_path, data):
+    with open(file_path, 'w') as file:
+        for item in data:
+            file.write(f"{item}\n")
+
+data = ["Kendrick", "Kanye", "Steve Lacy"]
+
+#Task 6
+
+def generate_files(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+
+    for letter in range(ord('A'), ord('Z') + 1):
+        file_name = f"{chr(letter)}.txt"
+        file_path = os.path.join(directory, file_name)
+        with open(file_path, 'w') as file:
+            file.write(f"Это файл {file_name}")
+
+directory = "рандом"
+generate_files(directory)
+print(f"Созданы 26 файлов в папке : {directory}")
+
+#Task 7
+
+def copy_file(source_path, destination_path):
+    with open(source_path, 'r') as source:
+        with open(destination_path, 'w') as destination:
+            destination.write(source.read())
+
+source_path = "исходник"  
+destination_path = "куда"  
+copy_file(source_path, destination_path)
+print(f"Содержимое файла {source_path} скопировано в {destination_path}")
+
+
+#Task 8
+
+def delete_file(file_path):
+    if os.path.exists(file_path):
+        if os.access(file_path, os.W_OK):  #доступ к файлу
+            os.remove(file_path) #удаляем 
+            print(f"Файл {file_path} удалён.")
+        else:
+            print(f"Нет доступа для удаления файла {file_path}.")
+    else:
+        print(f"Файл {file_path} не существует.")
+
+
+delete_file(file_path)
+
+
+
+
     
     
     
